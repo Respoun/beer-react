@@ -25,17 +25,17 @@ const Beers = () => {
   }, [currentPage])
 
   return (
-    <CenterDiv>
+    <div>
+      <CenterDiv>
       <p>Beers List</p>
+      </CenterDiv>
       {beers.map(beers => (
-      <div>
-        <div>
+      <Card>
           <img class="beer-picture" src={beers.image_url} alt={beers.name} height="10%" width="10%"></img>
-        </div>
           <Link to={"/details/" + beers.id}>{beers.name}</Link>
-        </div>
+      </Card>
       ))}
-    </CenterDiv>
+  </div>
   )
 }
 
@@ -44,5 +44,19 @@ const CenterDiv = styled.div`
     flex-direction: column;
     align-items: center;
 `
+
+
+const Card = styled.div`
+  background: #e9ecef;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 3rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 
 export default Beers

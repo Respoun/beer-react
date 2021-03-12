@@ -4,6 +4,7 @@ import Login from './components/login/login';
 import Details from './components/beers/details';
 import Random from './components/beers/random';
 import Privateroute from './components/routing/privateroute';
+import 'semantic-ui-css/semantic.min.css'
 
 import {
   BrowserRouter as Router,
