@@ -3,6 +3,8 @@ import Beers from './components/beers/beers';
 import Login from './components/login/login';
 import Details from './components/beers/details';
 import Random from './components/beers/random';
+import Find from './components/finder/finder';
+import Toolbar from './components/finder/toolbar';
 import Privateroute from './components/routing/privateroute';
 import 'semantic-ui-css/semantic.min.css'
 
@@ -28,6 +30,9 @@ export default function App() {
             <li>
               <Link to="/random">Find a random beer</Link>
             </li>
+            <li>
+              <Link to="/toolbar">Find a beers by name</Link>
+            </li>
           </ul>
         </nav>
         <Switch>
@@ -40,6 +45,12 @@ export default function App() {
          <Privateroute path="/random">
              <Random/>
           </Privateroute>
+          <Privateroute path="/toolbar">
+              <Toolbar/>
+           </Privateroute>
+           <Privateroute path="/find/:name">
+               <Find/>
+            </Privateroute>
          <Route path="/">
             <Login />
           </Route>

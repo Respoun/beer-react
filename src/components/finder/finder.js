@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import { useParams } from 'react-router-dom'
 import { useHistory, Link } from 'react-router-dom'
 
 const Beers = () => {
   const [beers, setBeers] = useState([])
+  const valueOffset = 20
   const [currentPage, setCurrentPage] = useState(0)
   const [total, setTotal] = useState(0)
+  const { name } = useParams()
+  console.log(name)
+
   useEffect(() => {
-    const url = 'https://api.punkapi.com/v2/beers'
+    const url = 'https://api.punkapi.com/v2/beers?beer_name='+name
     axios({
       method: 'GET',
       url: url,
@@ -22,7 +27,7 @@ const Beers = () => {
         console.log(err)
       })
   }, [currentPage])
-
+if (beers[0] !== undefined){
   return (
     <div>
       <CenterDiv>
@@ -36,6 +41,14 @@ const Beers = () => {
       ))}
   </div>
   )
+} else {
+
+        return(
+            <CenterDiv>
+                <p>Oups, no beer founds for your search</p>
+            </CenterDiv>
+        )
+    }
 }
 
 const CenterDiv = styled.div`

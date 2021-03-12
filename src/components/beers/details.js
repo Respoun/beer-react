@@ -46,12 +46,6 @@ const Details = () => {
     }
 }
 
-const CenterDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
-
 const Card = styled.div`
   background: #e9ecef;
   border-radius: 2px;
